@@ -2,25 +2,22 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hi Every one, I'm Duy and i'm glad to see every body in my Website....
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Basic React
-        </a>
-      </header>
+      <div className="App-child">
+        {props.data.map(sp => {
+          return (
+            <>
+              <img src={sp.imgURL}></img>
+              <h3>{sp.name}</h3>
+              <div><span class="span-dollar">{sp.price}</span></div>
+            </>
+          );
+        })}
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
