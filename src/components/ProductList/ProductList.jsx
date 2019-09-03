@@ -27,8 +27,8 @@ function ProductList(props) {
                         <div className="product-wrapper mb-50">
                           <div className="product-img mb-25">
                             <a href="#">
-                              <img src={elm.img} alt="" />
-                              <img className="secondary-img" src={elm.img} alt="" />
+                              <img src="{elm.img}" alt="" />
+                              <img className="{elm.img}" src={elm.img} alt="" />
                             </a>
                             <div className="product-action text-center">
                               <a href="#" title="Shoppingb Cart">
@@ -167,4 +167,4 @@ function ProductList(props) {
       </main>
     )
 }
-export default productList;
+export default ProductList;
