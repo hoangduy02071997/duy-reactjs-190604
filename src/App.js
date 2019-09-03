@@ -1,20 +1,63 @@
 import React from 'react';
 import logo from './logo.svg';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import './App.css';
-
+import ProductList from './components/ProductList/ProductList';
+const dssp = [{
+  img:'./assets/pro1.jpg',
+  name:'Product-Text',
+  cat:'Minimal Deco Furniture',
+  price:'100'
+},
+{
+  img:'./assets/pro1.jpg',
+  name:'Product-Text',
+  cat:'Minimal Deco Furniture',
+  price:'100'
+},
+{
+  img:'./assets/pro1.jpg',
+  name:'Product-Text',
+  cat:'Minimal Deco Furniture',
+  price:'100'
+},
+{
+  img:'./assets/pro1.jpg',
+  name:'Product-Text',
+  cat:'Minimal Deco Furniture',
+  price:'100'
+},
+{
+  img:'./assets/pro1.jpg',
+  name:'Product-Text',
+  cat:'Minimal Deco Furniture',
+  price:'100'
+},{
+  img:'./assets/pro1.jpg',
+  name:'Product-Text',
+  cat:'Minimal Deco Furniture',
+  price:'100'
+},
+{
+  img:'./assets/pro1.jpg',
+  name:'Product-Text',
+  cat:'Minimal Deco Furniture',
+  price:'100'
+},
+{
+  img:'./assets/pro1.jpg',
+  name:'Product-Text',
+  cat:'Minimal Deco Furniture',
+  price:'100'
+}]
 function App(props) {
   return (
-    <div className="App">
-      {props.data.map(sp => {
-        return (
-          <div className="App-child">
-            <img src={sp.imgURL}></img>
-            <h3>{sp.name}</h3>
-            <div><span class="span-dollar">{sp.price}</span></div>
-          </div>
-        );
-      })}
-    </div>
+    <>
+      <Header />
+      <ProductList data={props.data} />
+      <Footer />
+    </>
   )
 }
 
