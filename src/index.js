@@ -11,7 +11,7 @@ const product = [
         price:'$980'
     },
     {
-        name: 'Xiamoi',
+        name: 'Xiaomi',
         imgURL:"https://media3.scdn.vn/img3/2019/8_22/NOxTKT_simg_b5529c_250x250_maxb.jpg",
         price:'$480'
     },
