@@ -28,7 +28,7 @@ function ProductList(props) {
                           <div className="product-img mb-25">
                             <a href="#">
                               <img src="{elm.img}" alt="" />
-                              <img className="{elm.img}" src={elm.img} alt="" />
+                              <img className="{elm.imgHover}" src={elm.img} alt="" />
                             </a>
                             <div className="product-action text-center">
                               <a href="#" title="Shoppingb Cart">

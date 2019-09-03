@@ -11,42 +11,72 @@ const product = [{
     price:'100'
   },
   {
-    img:'./assets/pro1.jpg',
+    img:'./assets/pro2.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
     price:'100'
   },
   {
-    img:'./assets/pro1.jpg',
+    img:'./assets/pro3.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
     price:'100'
   },
   {
-    img:'./assets/pro1.jpg',
-    name:'Product-Text',
-    cat:'Minimal Deco Furniture',
-    price:'100'
-  },
-  {
-    img:'./assets/pro1.jpg',
-    name:'Product-Text',
-    cat:'Minimal Deco Furniture',
-    price:'100'
-  },{
-    img:'./assets/pro1.jpg',
-    name:'Product-Text',
-    cat:'Minimal Deco Furniture',
-    price:'100'
-  },
-  {
-    img:'./assets/pro1.jpg',
+    img:'./assets/pro4.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
     price:'100'
   },
   {
     img:'./assets/pro5.jpg',
+    name:'Product-Text',
+    cat:'Minimal Deco Furniture',
+    price:'100'
+  },{
+    img:'./assets/pro6.jpg',
+    name:'Product-Text',
+    cat:'Minimal Deco Furniture',
+    price:'100'
+  },
+  {
+    img:'./assets/pro7.jpg',
+    imgHover: './assets/pro5.jpg',
+    name:'Product-Text',
+    cat:'Minimal Deco Furniture',
+    price:'100'
+  },
+  {
+    img:'./assets/pro8.jpg',
+    imgHover: './assets/pro5.jpg',
+    name:'Product-Text',
+    cat:'Minimal Deco Furniture',
+    price:'100'
+  },
+  {
+    img:'./assets/pro9.jpg',
+    imgHover: './assets/pro5.jpg',
+    name:'Product-Text',
+    cat:'Minimal Deco Furniture',
+    price:'100'
+  },
+  {
+    img:'./assets/pro10.jpg',
+    imgHover: './assets/pro5.jpg',
+    name:'Product-Text',
+    cat:'Minimal Deco Furniture',
+    price:'100'
+  },
+  {
+    img:'./assets/pro11.jpg',
+    imgHover: './assets/pro5.jpg',
+    name:'Product-Text',
+    cat:'Minimal Deco Furniture',
+    price:'100'
+  },
+  {
+    img:'./assets/pro12.jpg',
+    imgHover: './assets/pro5.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
     price:'100'
