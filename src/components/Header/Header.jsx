@@ -1,5 +1,5 @@
 import React from 'react';
-function Header() {
+function Header( {prdInCart}) {
     return (
         <header>
             <div id="header-sticky" className="header-area box-90 sticky-header">
@@ -59,75 +59,29 @@ function Header() {
                                     <li className="login-btn"><a href="#"><i className="far fa-user" /></a></li>
                                     <li className="d-shop-cart"><a href="#"><i className="fas fa-shopping-cart" /> <span className="cart-count">3</span></a>
                                         <ul className="minicart">
-                                            <li>
-                                                <div className="cart-img">
-                                                    <a href="#">
-                                                        <img src="./assets/pro1.jpg" alt="" />
-                                                    </a>
-                                                </div>
-                                                <div className="cart-content">
-                                                    <h3>
-                                                        <a href="#">Black &amp; White Shoes</a>
-                                                    </h3>
-                                                    <div className="cart-price">
-                                                        <span className="new">$ 229.9</span>
-                                                        <span>
-                                                            <del>$239.9</del>
-                                                        </span>
+                                                <li>
+                                                    <div className="cart-img">
+                                                        <a href="#">
+                                                            <img src="./assets/pro1.jpg" alt="" />
+                                                        </a>
                                                     </div>
-                                                </div>
-                                                <div className="del-icon">
-                                                    <a href="#">
-                                                        <i className="far fa-trash-alt" />
-                                                    </a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="cart-img">
-                                                    <a href="#">
-                                                        <img src="./assets/pro2.jpg" alt="" />
-                                                    </a>
-                                                </div>
-                                                <div className="cart-content">
-                                                    <h3>
-                                                        <a href="#">Black &amp; White Shoes</a>
-                                                    </h3>
-                                                    <div className="cart-price">
-                                                        <span className="new">$ 229.9</span>
-                                                        <span>
-                                                            <del>$239.9</del>
-                                                        </span>
+                                                    <div className="cart-content">
+                                                        <h3>
+                                                            <a href="#">{elm.name}</a>
+                                                        </h3>
+                                                        <div className="cart-price">
+                                                            <span className="new">{elm.price}</span>
+                                                            <span>
+                                                                <del>{elm.price}</del>
+                                                            </span>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div className="del-icon">
-                                                    <a href="#">
-                                                        <i className="far fa-trash-alt" />
-                                                    </a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="cart-img">
-                                                    <a href="#">
-                                                        <img src="./assets/pro3.jpg" alt="" />
-                                                    </a>
-                                                </div>
-                                                <div className="cart-content">
-                                                    <h3>
-                                                        <a href="#">Black &amp; White Shoes</a>
-                                                    </h3>
-                                                    <div className="cart-price">
-                                                        <span className="new">$ 229.9</span>
-                                                        <span>
-                                                            <del>$239.9</del>
-                                                        </span>
+                                                    <div className="del-icon">
+                                                        <a href="#" onClick={rmItems}>
+                                                            <i className="far fa-trash-alt" />
+                                                        </a>
                                                     </div>
-                                                </div>
-                                                <div className="del-icon">
-                                                    <a href="#">
-                                                        <i className="far fa-trash-alt" />
-                                                    </a>
-                                                </div>
-                                            </li>
+                                                </li>
                                             <li>
                                                 <div className="total-price">
                                                     <span className="f-left">Total:</span>

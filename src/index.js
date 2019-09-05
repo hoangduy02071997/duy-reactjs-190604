@@ -5,41 +5,48 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const product = [{
+    productID: 1,
     img:'./assets/pro1.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
     price:'100'
   },
   {
+    productID: 2,
     img:'./assets/pro2.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
     price:'100'
   },
   {
+    productID: 3,
     img:'./assets/pro3.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
     price:'100'
   },
-  {
+  { 
+    productID: 4,
     img:'./assets/pro4.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
     price:'100'
   },
   {
+    productID: 5,
     img:'./assets/pro5.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
     price:'100'
   },{
+    productID: 6,
     img:'./assets/pro6.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
     price:'100'
   },
   {
+    productID: 7,
     img:'./assets/pro7.jpg',
     imgHover: './assets/pro5.jpg',
     name:'Product-Text',
@@ -47,6 +54,7 @@ const product = [{
     price:'100'
   },
   {
+    productID: 8,
     img:'./assets/pro8.jpg',
     imgHover: './assets/pro5.jpg',
     name:'Product-Text',
@@ -54,6 +62,7 @@ const product = [{
     price:'100'
   },
   {
+    productID: 9,
     img:'./assets/pro9.jpg',
     imgHover: './assets/pro5.jpg',
     name:'Product-Text',
@@ -61,6 +70,7 @@ const product = [{
     price:'100'
   },
   {
+    productID: 10,
     img:'./assets/pro10.jpg',
     imgHover: './assets/pro5.jpg',
     name:'Product-Text',
@@ -68,6 +78,7 @@ const product = [{
     price:'100'
   },
   {
+    productID: 11,
     img:'./assets/pro11.jpg',
     imgHover: './assets/pro5.jpg',
     name:'Product-Text',
@@ -75,6 +86,7 @@ const product = [{
     price:'100'
   },
   {
+    productID: 12,
     img:'./assets/pro12.jpg',
     imgHover: './assets/pro5.jpg',
     name:'Product-Text',

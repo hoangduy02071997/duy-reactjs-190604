@@ -1,6 +1,6 @@
 import React from 'react';
 import './ProductList.css'
-function ProductList(props) {
+function ProductList(props ,prdInCart, {addToCart}) {
     return (
         <main>
         {/* shop-area start */}
@@ -21,7 +21,7 @@ function ProductList(props) {
                   <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div className="row">
                       {
-                        props.data.map((elm)=>{
+                        product.map((elm)=>{
                           return (
                             <div className="col-xl-4 col-lg-6 col-md-6">
                         <div className="product-wrapper mb-50">
@@ -31,7 +31,7 @@ function ProductList(props) {
                               <img className="{elm.imgHover}" src={elm.img} alt="" />
                             </a>
                             <div className="product-action text-center">
-                              <a href="#" title="Shoppingb Cart">
+                              <a href="#" title="Shopping Cart">
                                 <i className="fas fa-shopping-cart" />
                               </a>
                               <a href="#" title="Quick View">
