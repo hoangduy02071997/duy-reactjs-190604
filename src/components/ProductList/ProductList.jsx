@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProductList.css'
-function ProductList({dssp, addToCart, onClick, sortAZ, sortZA, sortPriceUp, sortPriceDown, filterPro}) {
-  const handleClick = () => onClick(addToCart);
+function ProductList({data, addToCart, onClick, sortAZ, sortZA, sortPriceUp, sortPriceDown, filterPro}) {
+  const handleClick = () => onClick(data);
     return (
         <main>
         {/* shop-area start */}
@@ -22,7 +22,7 @@ function ProductList({dssp, addToCart, onClick, sortAZ, sortZA, sortPriceUp, sor
                   <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div className="row kqSort">
                       {
-                        dssp.map((elm)=>{
+                        data.map((elm)=>{
                           return (
                             <div className="col-xl-4 col-lg-6 col-md-6">
                         <div className="product-wrapper mb-50">
@@ -89,8 +89,8 @@ function ProductList({dssp, addToCart, onClick, sortAZ, sortZA, sortPriceUp, sor
                     <ul className="shop-link">
                       <li><a href="#" onClick={sortAZ}>Name: A-Z</a></li>
                       <li><a href="#" onClick={sortZA}>Name: Z-A</a></li>
-                      <li><a href="#" onClick={sortPriceUp}>Price: High to Low</a></li>
-                      <li><a href="#" onClick={sortPriceDown}>Price: Low to High</a></li>
+                      <li><a href="#" onClick={sortPriceDown}>Price: High to Low</a></li>
+                      <li><a href="#" onClick={sortPriceUp}>Price: Low to High</a></li>
                       <li><a href="#" onClick={filterPro}>Product: Top Sales</a></li>
                     </ul>
                   </div>

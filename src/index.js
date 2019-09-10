@@ -15,7 +15,7 @@ const dssp = [{
   {
     productID: 2,
     img:'./assets/pro2.jpg',
-    name:'Product-Text',
+    name:'Hroduct-Text',
     cat:'Minimal Deco Furniture',
     price:'100',
     pricePromote:'50'
@@ -23,7 +23,7 @@ const dssp = [{
   {
     productID: 3,
     img:'./assets/pro3.jpg',
-    name:'Product-Text',
+    name:'Croduct-Text',
     cat:'Minimal Deco Furniture',
     price:'100',
     pricePromote:'50'
@@ -31,9 +31,9 @@ const dssp = [{
   { 
     productID: 4,
     img:'./assets/pro4.jpg',
-    name:'Product-Text',
+    name:'Aroduct-Text',
     cat:'Minimal Deco Furniture',
-    price:'100',
+    price:'2100',
     pricePromote:'50'
   },
   {
@@ -48,7 +48,7 @@ const dssp = [{
     img:'./assets/pro6.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
-    price:'100',
+    price:'4100',
     pricePromote:'50'
   },
   {
@@ -57,7 +57,7 @@ const dssp = [{
     imgHover: './assets/pro5.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
-    price:'100',
+    price:'1100',
     pricePromote:'50'
   },
   {
@@ -66,7 +66,7 @@ const dssp = [{
     imgHover: './assets/pro5.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
-    price:'100',
+    price:'10',
     pricePromote:'50'
   },
   {
@@ -75,7 +75,7 @@ const dssp = [{
     imgHover: './assets/pro5.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
-    price:'100',
+    price:'200',
     pricePromote:'50'
   },
   {
@@ -84,7 +84,7 @@ const dssp = [{
     imgHover: './assets/pro5.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
-    price:'100',
+    price:'400',
     pricePromote:'70'
   },
   {
@@ -93,7 +93,7 @@ const dssp = [{
     imgHover: './assets/pro5.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
-    price:'100',
+    price:'700',
     pricePromote:'30'
   },
   {
@@ -102,7 +102,7 @@ const dssp = [{
     imgHover: './assets/pro5.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
-    price:'100',
+    price:'900',
     pricePromote:'50'
   }];
 
