@@ -1,6 +1,7 @@
 import React from 'react';
 import './ProductList.css'
-function ProductList(props ,prdInCart, {addToCart}) {
+function ProductList({dssp, addToCart, onClick, sortAZ, sortZA, sortPriceUp, sortPriceDown, filterPro}) {
+  const handleClick = () => onClick(addToCart);
     return (
         <main>
         {/* shop-area start */}
@@ -19,9 +20,9 @@ function ProductList(props ,prdInCart, {addToCart}) {
                 {/* tab content */}
                 <div className="tab-content" id="myTabContent">
                   <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <div className="row">
+                    <div className="row kqSort">
                       {
-                        product.map((elm)=>{
+                        dssp.map((elm)=>{
                           return (
                             <div className="col-xl-4 col-lg-6 col-md-6">
                         <div className="product-wrapper mb-50">
@@ -31,7 +32,7 @@ function ProductList(props ,prdInCart, {addToCart}) {
                               <img className="{elm.imgHover}" src={elm.img} alt="" />
                             </a>
                             <div className="product-action text-center">
-                              <a href="#" title="Shopping Cart">
+                              <a href="#" title="Shopping Cart" onClick={handleClick}>  
                                 <i className="fas fa-shopping-cart" />
                               </a>
                               <a href="#" title="Quick View">
@@ -86,11 +87,11 @@ function ProductList(props ,prdInCart, {addToCart}) {
                   <div className="shop-widget">
                     <h3 className="shop-title">SHOP BY</h3>
                     <ul className="shop-link">
-                      <li><a href="#">Name: A-Z</a></li>
-                      <li><a href="#">Name: Z-A</a></li>
-                      <li><a href="#">Price: High to Low</a></li>
-                      <li><a href="#">Price: Low to High</a></li>
-                      <li><a href="#">Product: Top Sales</a></li>
+                      <li><a href="#" onClick={sortAZ}>Name: A-Z</a></li>
+                      <li><a href="#" onClick={sortZA}>Name: Z-A</a></li>
+                      <li><a href="#" onClick={sortPriceUp}>Price: High to Low</a></li>
+                      <li><a href="#" onClick={sortPriceDown}>Price: Low to High</a></li>
+                      <li><a href="#" onClick={filterPro}>Product: Top Sales</a></li>
                     </ul>
                   </div>
                   <div className="shop-widget">

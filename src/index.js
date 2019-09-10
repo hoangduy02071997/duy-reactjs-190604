@@ -4,46 +4,52 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const product = [{
+const dssp = [{
     productID: 1,
     img:'./assets/pro1.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
-    price:'100'
+    price:'100',
+    pricePromote:'50'
   },
   {
     productID: 2,
     img:'./assets/pro2.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
-    price:'100'
+    price:'100',
+    pricePromote:'50'
   },
   {
     productID: 3,
     img:'./assets/pro3.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
-    price:'100'
+    price:'100',
+    pricePromote:'50'
   },
   { 
     productID: 4,
     img:'./assets/pro4.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
-    price:'100'
+    price:'100',
+    pricePromote:'50'
   },
   {
     productID: 5,
     img:'./assets/pro5.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
-    price:'100'
+    price:'100',
+    pricePromote:'50'
   },{
     productID: 6,
     img:'./assets/pro6.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
-    price:'100'
+    price:'100',
+    pricePromote:'50'
   },
   {
     productID: 7,
@@ -51,7 +57,8 @@ const product = [{
     imgHover: './assets/pro5.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
-    price:'100'
+    price:'100',
+    pricePromote:'50'
   },
   {
     productID: 8,
@@ -59,7 +66,8 @@ const product = [{
     imgHover: './assets/pro5.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
-    price:'100'
+    price:'100',
+    pricePromote:'50'
   },
   {
     productID: 9,
@@ -67,7 +75,8 @@ const product = [{
     imgHover: './assets/pro5.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
-    price:'100'
+    price:'100',
+    pricePromote:'50'
   },
   {
     productID: 10,
@@ -75,7 +84,8 @@ const product = [{
     imgHover: './assets/pro5.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
-    price:'100'
+    price:'100',
+    pricePromote:'70'
   },
   {
     productID: 11,
@@ -83,7 +93,8 @@ const product = [{
     imgHover: './assets/pro5.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
-    price:'100'
+    price:'100',
+    pricePromote:'30'
   },
   {
     productID: 12,
@@ -91,9 +102,11 @@ const product = [{
     imgHover: './assets/pro5.jpg',
     name:'Product-Text',
     cat:'Minimal Deco Furniture',
-    price:'100'
+    price:'100',
+    pricePromote:'50'
   }];
-ReactDOM.render(<App data={product}/>, document.getElementById('root'));
+
+ReactDOM.render(<App data={dssp}/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
