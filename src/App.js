@@ -16,6 +16,7 @@ function sortAZ(sp){
     if(a.name=b.name)
     return 0;
   })
+  setSP(kq);
 }
 
 function sortZA(){
@@ -28,7 +29,7 @@ function sortZA(){
     if(a.name=b.name)
     return 0;
   })
-
+  setSP(kq);
 }
 
 function sortPriceUp(){
@@ -36,7 +37,7 @@ function sortPriceUp(){
   const kq = sps.sort((a,b)=>{
     return a.price - b.price;
   })
-
+  setSP(kq);
 }
 
 function sortPriceDown(){
@@ -44,6 +45,7 @@ function sortPriceDown(){
   const kq = sps.sort((a,b)=>{
     return b.price - a.price;
   })
+  setSP(kq);
 }
 
 function filterPro(){
