@@ -1,10 +1,10 @@
-import { connect } from 'react-redux'
-import Header from './'
+import { connect } from "react-redux";
+import Header from "./Header";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     lengthOfSelectedItem: state.productListReducer.selectedItems.length
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps)(Header)
+export default connect(mapStateToProps)(Header);

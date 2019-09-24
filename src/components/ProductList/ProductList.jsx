@@ -1,10 +1,10 @@
 import React from "react";
-import ProductItems from '../ProductItems'
+import ProductItems from "../ProductItems/ProductItems";
 export default function ProductList(props) {
-  console.log(props)
-  const addItem = (item) => {
-    props.addItemToCart(item)
-  }
+  console.log(props);
+  const addItem = item => {
+    props.addItemToCart(item);
+  };
   return (
     <main>
       {/*  <!-- shop-area start --> */}
@@ -29,13 +29,10 @@ export default function ProductList(props) {
                   aria-labelledby="home-tab"
                 >
                   <div className="row">
-                    {
-                      props.data.map(product => (
-                        <ProductItems addItem={addItem} {...product} />
-                      ))
-                    }
-                    
-                    </div>
+                    {props.data.map(product => (
+                      <ProductItems addItem={addItem} {...product} />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

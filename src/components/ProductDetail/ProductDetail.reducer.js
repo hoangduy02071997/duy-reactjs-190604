@@ -1,26 +1,20 @@
-import {SINGLE_REQUEST} from './ProductDetail.action';
-import {SINGLE_SUCCESS} from './ProductDetail.action';
-import {SINGLE_ERROR} from './ProductDetail.action';
-const initialState = {
-    selectedItems:[]
-}
+import { PRD_DETAIL_REQUEST } from "./ProductDetail.action";
+import { PRD_DETAIL_SUCCESS } from "./ProductDetail.action";
+import { PRD_DETAIL_ERROR } from "./ProductDetail.action";
+import { VIEW_PRD_DETAIL } from "./ProductDetail.action";
 
-export default function productDetailReducer (state=initialState,action){
-    switch(action.type){
-        case SINGLE_REQUEST:
-            return{
-                ...state,
-                selectedItems: [...state.selectedItems,action.payload]
-            }
-        case SINGLE_SUCCESS:
-        return{
-            ...state,
-            selectedItems: [...state.selectedItems,action.payload]
-        }
-        case SINGLE_ERROR:
-            return{
-                ...state,
-                selectedItems: [...state.selectedItems,action.payload]
-            }
-    }
+const initialState = {
+  selectedItems: []
+};
+
+export default function productDetailReducer(state = initialState, action) {
+  switch (action.type) {
+    case VIEW_PRD_DETAIL:
+      return {
+        ...state,
+        selectedItems: [...state.selectedItems, action.payload]
+      };
+    default:
+      return state;
+  }
 }
