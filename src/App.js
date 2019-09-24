@@ -1,108 +1,67 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import NoMatch from  './components/NoMatch/NoMatch';
-import ProductDetail from './components/ProductDetail/ProductDetail';
 import './App.css';
-import ProductList from './components/ProductList/ProductList';
-import Login from './components/Login/Login';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import result from './data.json'
+import Layout from './components/Layout';
+import ProductList from './components/ProductList/ProductList.container';
+import Login from './components/LoginForm/LoginForm.container'
+import Register from './components/RegisterForm'
+import NoMatch from './components/NoMatch'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import ProductDetail from './components/ProductDetail';
+import PrivateRoute from './components/PrivateRoute';
 
+function App() {
+    const [selectedItem, setSelectedItem] = useState()
+    const [isShowSearchModal, setSearchModal] = useState(true)
+    const findSelectedItem = (productId) => {
+        const item = result.data.find(item => item.product_id === parseInt(productId, 10))
+        setSelectedItem(item)
+    }
 
-function App({ data }) {
-  const [sp, setSP] = useState(data);
-  function sortAZ() {
-    const kq = sp.sort((a, b) => {
-      if (a.name > b.name)
-        return 1;
-      if (a.name < b.name)
-        return -1;
-      if (a.name == b.name)
-        return 0;
-    })
-    setSP(kq);
-  }
+    const onShowSearch = () => {
+        setSearchModal((state) => !state)
+    }
 
-  function sortZA() {
-    const sps = [...sp];
-    const kq = sps.sort((a, b) => {
-      if (a.name > b.name)
-        return -1;
-      if (a.name < b.name)
-        return 1;
-      if (a.name == b.name)
-        return 0;
-    })
-    setSP(kq);
-  }
+    return (
+        <Router>
+            <Layout onShowSearch={onShowSearch}>
+                <Switch>
+                    <Route exact path="/" render={() =>
+                        <ProductList data={result.data} />
+                    } />
+                    <Route path="/login" component={Login} />
+                    <Route path="/register" component={Register} />
+                    <PrivateRoute path="/product-detail/:productId" render={
+                        (propsOfRouter) => (
+                            <ProductDetail
+                                findSelectedItem={findSelectedItem}
+                                selectedItem={selectedItem}
+                                {...propsOfRouter}
+                            />
+                        )
+                    } />
+                    <PrivateRoute component={NoMatch} />
+                </Switch>
 
-  function sortPriceUp() {
-    const sps = [...sp];
-    const kq = sps.sort((a, b) => {
-      return a.price - b.price;
-    })
-    setSP(kq);
-  }
+                {
+                    isShowSearchModal &&
+                    <div className="search-wrap" onClick={onShowSearch}>
+                        <div className="search-inner">
+                            <i className="fas fa-times search-close" id="search-close"></i>
+                            <div className="search-cell">
+                                <form method="get">
+                                    <div className="search-field-holder">
+                                        <input type="search" className="main-search-input" placeholder="Search Entire Store..." />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }
 
-  function sortPriceDown() {
-    const sps = [...sp];
-    const kq = sps.sort((a, b) => {
-      return b.price - a.price;
-    })
-    setSP(kq);
-  }
-
-  function filterPro() {
-    const sps = [...sp];
-    const kq = sp.filter((a) => {
-      return a.pricePromote >= 50;
-    })
-  }
-  const [prdInCart, setPrdInCart] = useState([]);
-  const addToCart = (product) => {
-    setPrdInCart([...prdInCart, product]);
-  }
-  const removePro = (product) => {
-    const products = prdInCart.filter(elm => elm.productID !== product.productID);
-    setPrdInCart(products);
-  }
-  return (
-    <>
-      <Header prdInCart={prdInCart} removePro={removePro} />
-      {/*
-      <ProductList data={sp} 
-        addToCart={addToCart} 
-        sortAZ={sortAZ} 
-        sortZA={sortZA} 
-        sortPriceUp={sortPriceUp} 
-        sortPriceDown={sortPriceDown} 
-        filterPro={filterPro} 
-      />
-      */}
-      <Router>
-      <Switch>
-        <Route path='/Login' component={Login} />
-        <Route exact path='/' render={()=>(
-          <ProductList data={sp} 
-          addToCart={addToCart} 
-          sortAZ={sortAZ} 
-          sortZA={sortZA} 
-          sortPriceUp={sortPriceUp} 
-          sortPriceDown={sortPriceDown} 
-          filterPro={filterPro} 
-        />
-        )}/>
-        <Route path='/ProductDetail/:id' component={ProductDetail}/>
-        <Route component={NoMatch}/>
-        </Switch>
-      </Router>
-
-      <Footer />
-
-    </>
-  )
+            </Layout>
+        </Router>
+    );
 }
-
 
 export default App;

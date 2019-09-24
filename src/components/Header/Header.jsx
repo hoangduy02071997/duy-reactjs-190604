@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+import { prmotedProductsSelector } from '../ProductList/ProductList.container';
 function Header({ prdInCart, removePro }) {
     return (
         <header>
@@ -7,9 +9,11 @@ function Header({ prdInCart, removePro }) {
                     <div className="row align-items-center">
                         <div className="col-xl-2 col-lg-6 col-md-6 col-7 col-sm-5 d-flex align-items-center pos-relative">
                             <div className="logo">
-                                <a href="#"><img src="./assets/logo_shop.png" alt="" /></a>
+                                <Link to="/">
+                                    <img src="./assets/logo_shop.png" alt="" />
+                                </Link>
                             </div>
-                            <div className="category-menu">
+                                {/*<div className="category-menu">
                                 <h4>Category</h4>
                                 <ul>
                                     <li><a href="#"><i className="fas fa-shopping-cart" /> Table lamp</a></li>
@@ -20,29 +24,29 @@ function Header({ prdInCart, removePro }) {
                                     <li><a href="#"><i className="fas fa-shopping-cart" /> Cloth</a></li>
                                     <li><a href="#"><i className="fas fa-shopping-cart" /> Trend</a></li>
                                 </ul>
-                            </div>
+    </div>*/}   
                         </div>
                         <div className="col-xl-8 col-lg-6 col-md-8 col-8 d-none d-xl-block">
                             <div className="main-menu text-center">
                                 <nav id="mobile-menu" style={{ display: 'block' }}>
                                     <ul>
                                         <li>
-                                            <a href="./index.html">Home</a>
+                                            <Link to="/">Home</Link>
                                         </li>
                                         <li>
                                             <a href="#">Pages</a>
                                             <ul className="submenu">
                                                 <li>
-                                                    <a href="./detail.html">Product Detail</a>
+                                                    <Link to="./detail.html">Product Detail</Link>
                                                 </li>
                                                 <li>
-                                                    <a href="./login.html">login</a>
+                                                    <Link to="./login">Login</Link>
                                                 </li>
                                                 <li>
-                                                    <a href="./register.html">Register</a>
+                                                    <Link to="/register">Register</Link>
                                                 </li>
                                                 <li>
-                                                    <a href="./cart.html">Shoping Cart</a>
+                                                    <Link to="./cart.html">Shopping Cart</Link>
                                                 </li>
                                             </ul>
                                         </li>
@@ -54,10 +58,10 @@ function Header({ prdInCart, removePro }) {
                             <div className="header-right f-right">
                                 <ul>
                                     <li className="search-btn">
-                                        <a className="search-btn nav-search search-trigger" href="#"><i className="fas fa-search" /></a>
+                                        <a className="search-btn nav-search search-trigger" onClick={props.onShowSearch} href=""><i className="fas fa-search" /></a>
                                     </li>
-                                    <li className="login-btn"><a href="#"><i className="far fa-user" /></a></li>
-                                    <li className="d-shop-cart"><a href="#"><i className="fas fa-shopping-cart" /> <span className="cart-count">{prdInCart.length}</span></a>
+                                    <li className="login-btn"><Link to="/login"><i className="far fa-user" /></Link></li>
+                                    <li className="d-shop-cart"><a href="#"><i className="fas fa-shopping-cart" /> <span className="cart-count">{props.lengthOfSelectedItem}</span></a>
                                         <ul className="minicart">
                                             {
                                                 prdInCart.map(elm => {
@@ -80,7 +84,7 @@ function Header({ prdInCart, removePro }) {
                                                                 </div>
                                                             </div>
                                                             <div className="del-icon">
-                                                                <a href="#" onClick={(elm) => removePro(elm)}>
+                                                                <a href="#" onClick= {elm => removePro(elm)}>
                                                                     <i className="far fa-trash-alt" />
                                                                 </a>
                                                             </div>

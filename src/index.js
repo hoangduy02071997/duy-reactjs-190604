@@ -3,8 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import initFirebase from './firebaseConfig';
+import { Provider } from 'react-redux';
+import {store} from './App.store';
 
-const dssp = [{
+/*const dssp = [{
     productID: 1,
     img:'./assets/pro1.jpg',
     name:'Product-Text',
@@ -104,9 +107,9 @@ const dssp = [{
     cat:'Minimal Deco Furniture',
     price:'900',
     pricePromote:'50'
-  }];
-
-ReactDOM.render(<App data={dssp}/>, document.getElementById('root'));
+  }];*/
+initFirebase();
+ReactDOM.render( <Provider store={store}> <App/> </Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

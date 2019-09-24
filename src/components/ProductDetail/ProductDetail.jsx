@@ -1,8 +1,20 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { BrowserRouter as Router, Route, Link, Switch, withRouter } from 'react-router-dom';
 
 function ProductDetail(props) {
     console.log(props)
+    useEffect(()=>{
+        props.findSelectedItems(props.match.params.productId)
+    }, [])
+    useEffect(()=>{
+        window.scrollTo({
+            top:0,
+            behavior:'smooth'
+        })
+    }, [])
+    if (!props.selectedItems){
+        return <p>Loading...</p>
+    }
     return (
         <div>
             <section className="breadcrumb-area" style={{ backgroundImage: 'url("./assets/page-title.png")' }}>
@@ -81,7 +93,7 @@ function ProductDetail(props) {
                                             <li><span>Product Code:</span> d12</li>
                                             <li><span>Reward Points:</span> 100</li>
                                             <li><span>Stock:</span> <span className="in-stock">In Stock</span></li>
-                                        </ul>
+                                            x                       </ul>
                                     </div>
                                     <div className="product-action-details variant-item">
                                         <div className="product-details-action">
