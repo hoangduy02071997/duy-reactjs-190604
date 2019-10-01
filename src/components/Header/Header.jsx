@@ -31,7 +31,7 @@ function Header(props) {
                 <nav id="mobile-menu" style={{ display: "block" }}>
                   <ul>
                     <li>
-                      <Link to="/">Home</Link>
+                      <Link to=".   /">Home</Link>
                     </li>
                     <li>
                       <a href="#">Pages</a>

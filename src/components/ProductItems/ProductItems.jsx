@@ -3,8 +3,9 @@ import {Link} from 'react-router-dom'
 
 
 export default function ProductItem(props) {
-  const onAddItemToCart = ()=>{
-    props.addItem(props)
+  const {onAddToCart, product} = props
+  const AddToCart = ()=>{
+    onAddToCart(product)
   }
   return (
     <div className="col-xl-4 col-lg-6 col-md-6">
@@ -12,10 +13,10 @@ export default function ProductItem(props) {
       <div className="product-img mb-25">
         <Link to={`product-detail/${props.product_id}`}>
           <img src={props.img_url} alt=""/>
-          <img className="secondary-img" src="./assets/pro4.jpg" alt=""/>
+          <img className="secondary-img" src={props.img_url_mops} alt=""/>
         </Link>
         <div className="product-action text-center">
-          <a href="#" title="Shoppingb Cart" onClick={onAddItemToCart}>
+          <a href="#" title="Shoppingb Cart" onClick={AddToCart}>
             <i className="fas fa-shopping-cart" />
           </a>
           <Link to={`product-detail/${props.product_id}`}>
@@ -32,8 +33,8 @@ export default function ProductItem(props) {
         </h4>
         <div className="product-meta">
           <div className="pro-price">
-            <span>{props.price} USD</span>
-            <span className="old-price">{props.pricePromoted} USD</span>
+            <span>{props.final_price} $</span>
+            <span className="old-price">{props.price} $</span>
           </div>
         </div>
       </div>

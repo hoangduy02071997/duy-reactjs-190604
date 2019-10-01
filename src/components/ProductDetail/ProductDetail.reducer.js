@@ -4,15 +4,24 @@ import { PRD_DETAIL_ERROR } from "./ProductDetail.action";
 import { VIEW_PRD_DETAIL } from "./ProductDetail.action";
 
 const initialState = {
-  selectedItems: []
+  result:null,
+  load:false,
+  error:null
 };
 
 export default function productDetailReducer(state = initialState, action) {
   switch (action.type) {
-    case VIEW_PRD_DETAIL:
+    case PRD_DETAIL_REQUEST:
       return {
-        ...state,
-        selectedItems: [...state.selectedItems, action.payload]
+        ...state, load:true
+      };
+    case PRD_DETAIL_SUCCESS:
+      return{
+        ...state, load : false, result : action.payload
+      };
+    case PRD_DETAIL_ERROR :
+      return {
+        ...state, load : false, error : action.error
       };
     default:
       return state;

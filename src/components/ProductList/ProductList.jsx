@@ -1,12 +1,92 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import ProductItems from "../ProductItems/ProductItems";
 
 export default function ProductList(props) {
-  const {sortNameAz, sortNameZa, sortPriceLowToHigh, sortPriceHighToLow, data } = props
-  console.log(props)
-  const addItem = item => {
-    props.addItemToCart(item);
-  };
+  const {onAddToCart, getProductList, productList } = props
+  // use effect for API 
+  useEffect(() => {
+    getProductList()
+  },[])
+  // Get data from Api was got input productShow
+  const [productShow, setProductShow] = useState([])
+  useEffect(() => {
+    setProductShow([...productList])
+  },[productList])
+  
+  //test
+  
+  // Sort product by Name A-Z
+    const sortNameAz = () => {
+    const product = [...productShow];
+    const newProduct = product.sort((a,b) => {
+      if (a.name > b.name){
+        return 1;
+      }
+      if (a.name == b.name){
+        return 0;
+      }
+      if(a.name < b.name){
+        return -1;
+      }
+    })
+    setProductShow(newProduct)
+  }
+  //Sort product by name Z-A
+  const sortNameZa = (a,b) => {
+    const product = [...productShow];
+    const newProduct = product.sort((a,b) => {
+      if (a.name > b.name){
+        return -1;
+      }
+      if (a.name == b.name){
+        return 0;
+      }
+      if(a.name < b.name){
+        return 1;
+      }
+    })
+    setProductShow(newProduct)
+  }
+  // Sort Price Low to High
+  const sortPriceLowToHigh = () => {
+    const product = [...productShow]
+    const newProducts = product.sort((a, b) => a.final_price - b.final_price)
+    setProductShow(newProducts)
+  }
+  // Sort Price High to Low
+  const sortPriceHighToLow = () => {
+    const product = [...productShow]
+    const newProducts = product.sort((a, b) => b.final_price - a.final_price)
+    setProductShow(newProducts)
+  }
+
+  //Sort Product Top Sales
+  const sortProductTopSales = () => {
+    const product = [...productShow]
+    const newProducts = product.filter(elm => {
+        return elm.promotion_percent > 40 ;
+    })
+    setProductShow(newProducts)
+  }
+  //end
+
+  //search
+  const [textChange, setText] = useState("")
+
+  const onTextChange = (event) => {
+    console.log(event.target.value)
+   setText(event.target.value)
+}
+
+const onFormSearch = () => {
+  setProductShow(productList.filter(element => {
+    if(element.name.includes(textChange)) {
+      return element
+    }
+ }))
+ setText("")
+}
+  
   return (
     <main>
       {/*  <!-- shop-area start --> */}
@@ -31,8 +111,8 @@ export default function ProductList(props) {
                   aria-labelledby="home-tab"
                 >
                   <div className="row">
-                    {props.data.map(product => (
-                      <ProductItems addItem={addItem} {...product} />
+                    {productShow.map(product => (
+                      <ProductItems onAddToCart = {onAddToCart} {...product} />
                     ))
                     }
                   </div>
@@ -44,8 +124,8 @@ export default function ProductList(props) {
               <div className="sidebar-shop">
                 <div className="shop-widget">
                   <h3 className="shop-title">Search by</h3>
-                  <form action="#" className="shop-search">
-                    <input type="text" placeholder="Your keyword...." />
+                  <form action="#" className="shop-search" onSubmit={onFormSearch}>
+                    <input type="text" placeholder="Your keyword...." onChange={onTextChange} />
                     <button>
                       <i className="fa fa-search" />
                     </button>
@@ -76,7 +156,7 @@ export default function ProductList(props) {
                       <a href="#" onClick={sortPriceLowToHigh}>Price: Low to High</a>
                     </li>
                     <li>
-                      <a href="#">Product: Top Sales</a>
+                      <a href="#" onClick = {sortProductTopSales}>Product: Top Sales</a>
                     </li>
                   </ul>
                 </div>
