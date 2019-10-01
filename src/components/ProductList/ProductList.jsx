@@ -2,6 +2,8 @@ import React from "react";
 import ProductItems from "../ProductItems/ProductItems";
 
 export default function ProductList(props) {
+  const {sortNameAz, sortNameZa, sortPriceLowToHigh, sortPriceHighToLow, data } = props
+  console.log(props)
   const addItem = item => {
     props.addItemToCart(item);
   };
@@ -62,16 +64,16 @@ export default function ProductList(props) {
                   <h3 className="shop-title">SHOP BY</h3>
                   <ul className="shop-link">
                     <li>
-                      <a href="#">Name: A-Z</a>
+                      <a href="#" onClick={sortNameAz}>Name: A-Z</a>
                     </li>
                     <li>
-                      <a href="#">Name: Z-A</a>
+                      <a href="#" onClick={sortNameZa}>Name: Z-A</a>
                     </li>
                     <li>
-                      <a href="#">Price: High to Low</a>
+                      <a href="#" onClick={sortPriceHighToLow}>Price: High to Low</a>
                     </li>
                     <li>
-                      <a href="#">Price: Low to High</a>
+                      <a href="#" onClick={sortPriceLowToHigh}>Price: Low to High</a>
                     </li>
                     <li>
                       <a href="#">Product: Top Sales</a>

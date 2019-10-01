@@ -29,42 +29,47 @@ function App() {
   // remove PRD inMiniCart
   const rmProduct = (product) => {
     const products = prdIncart.filter(elm => elm.productId !== product.productId)
-    setPrdInCart([...prdIncart, product])
+    setPrdInCart([...prdIncart, products])
   }
   // Sort product by Name A-Z
   const sortNameAz = () => {
-    const product = [...data] 
-    const newProducts = product.sort((a,b) => a.name.charCodeAt(0) - b.name.charCodeAt(0))
+    const product = [...data]
+    const newProducts = product.sort((a, b) => a.name.charCodeAt(0) - b.name.charCodeAt(0))
     setData(newProducts)
   }
   //Sort product by name Z-A
   const sortNameZa = () => {
-    const product = [...data] 
-    const newProducts = product.sort((a,b) => b.name.charCodeAt(0) - a.name.charCodeAt(0))
+    const product = [...data]
+    const newProducts = product.sort((a, b) => b.name.charCodeAt(0) - a.name.charCodeAt(0))
     setData(newProducts)
   }
   // Sort Price Low to High
   const sortPriceLowToHigh = () => {
-    const product = [...data] 
-    const newProducts = product.sort((a,b) => a.price - b.price)
+    const product = [...data]
+    const newProducts = product.sort((a, b) => a.price - b.price)
     setData(newProducts)
   }
   // Sort Price High to Low
   const sortPriceHighToLow = () => {
-    const product = [...data] 
-    const newProducts = product.sort((a,b) => b.price - a.price)
+    const product = [...data]
+    const newProducts = product.sort((a, b) => b.price - a.price)
     setData(newProducts)
   }
 
   return (
     <Router>
-      
-      <Layout onShowSearch={onShowSearch} prdIncart = {prdIncart} rmProduct={rmProduct}>
+
+      <Layout onShowSearch={onShowSearch} prdIncart={prdIncart} rmProduct={rmProduct}>
         <Switch>
           <Route
             exact
             path="/"
-            render={() => <ProductList data={result.data} />}
+            render={() => <ProductList data={result.data}
+              sortNameAz={sortNameAz}
+              sortNameZa={sortNameZa}
+              sortPriceLowToHigh={sortPriceLowToHigh}
+              sortPriceHighToLow={sortPriceHighToLow}
+            />}
           />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
