@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
+import getProduct from './components/ProductList/ProductList.action'
+import result from './data.json'
 import Layout from "./components/Layout";
 import ProductList from "./components/ProductList/ProductList.container";
 import Login from "./components/Login/Login";
@@ -22,10 +24,42 @@ function App() {
   const onShowSearch = () => {
     setSearchModal(state => !state);
   };
+  const [prdIncart, setPrdInCart] = useState([]);
+  const [data, setData] = useState([]);
+  // remove PRD inMiniCart
+  const rmProduct = (product) => {
+    const products = prdIncart.filter(elm => elm.productId !== product.productId)
+    setPrdInCart([...prdIncart, product])
+  }
+  // Sort product by Name A-Z
+  const sortNameAz = () => {
+    const product = [...data] 
+    const newProducts = product.sort((a,b) => a.name.charCodeAt(0) - b.name.charCodeAt(0))
+    setData(newProducts)
+  }
+  //Sort product by name Z-A
+  const sortNameZa = () => {
+    const product = [...data] 
+    const newProducts = product.sort((a,b) => b.name.charCodeAt(0) - a.name.charCodeAt(0))
+    setData(newProducts)
+  }
+  // Sort Price Low to High
+  const sortPriceLowToHigh = () => {
+    const product = [...data] 
+    const newProducts = product.sort((a,b) => a.price - b.price)
+    setData(newProducts)
+  }
+  // Sort Price High to Low
+  const sortPriceHighToLow = () => {
+    const product = [...data] 
+    const newProducts = product.sort((a,b) => b.price - a.price)
+    setData(newProducts)
+  }
 
   return (
     <Router>
-      <Layout onShowSearch={onShowSearch}>
+      
+      <Layout onShowSearch={onShowSearch} prdIncart = {prdIncart} rmProduct={rmProduct}>
         <Switch>
           <Route
             exact

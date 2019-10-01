@@ -8,9 +8,7 @@ import {
 import ProductList from "../ProductList/ProductList";
 
 export const prmotedProductsSelector = state => {
-  return state.productListReducer.data.filter(
-    elm => elm.price > elm.final_price
-  );
+  //return state.productListReducer.data.filter(elm => elm.price > elm.final_price)
 };
 
 const mapStateToProps = state => {

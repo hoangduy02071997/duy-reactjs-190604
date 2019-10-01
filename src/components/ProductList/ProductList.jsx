@@ -1,7 +1,7 @@
 import React from "react";
 import ProductItems from "../ProductItems/ProductItems";
+
 export default function ProductList(props) {
-  console.log(props);
   const addItem = item => {
     props.addItemToCart(item);
   };
@@ -31,7 +31,8 @@ export default function ProductList(props) {
                   <div className="row">
                     {props.data.map(product => (
                       <ProductItems addItem={addItem} {...product} />
-                    ))}
+                    ))
+                    }
                   </div>
                 </div>
               </div>

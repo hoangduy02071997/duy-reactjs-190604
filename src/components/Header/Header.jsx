@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { prmotedProductsSelector } from "../ProductList/ProductList.container";
+
 function Header(props) {
   return (
     <header>
@@ -79,33 +79,75 @@ function Header(props) {
                       </span>
                     </a>
                     <ul className="minicart">
-                      {props.map(elm => {
-                        return (
-                          <li>
-                            <div className="cart-img">
-                              <a href="#">
-                                <img src="{elm.img}" alt="" />
-                              </a>
-                            </div>
-                            <div className="cart-content">
-                              <h3>
-                                <a href="#">{elm.name}</a>
-                              </h3>
-                              <div className="cart-price">
-                                <span className="new">{elm.price}</span>
-                                <span>
-                                  <del>{elm.price}</del>
-                                </span>
-                              </div>
-                            </div>
-                            <div className="del-icon">
-                              <a href="#" onClick={elm => removePro(elm)}>
-                                <i className="far fa-trash-alt" />
-                              </a>
-                            </div>
-                          </li>
-                        );
-                      })}
+                    <li>
+                        <div className="cart-img">
+                          <a href="#">
+                            <img src="./assets/pro1.jpg" alt="" />
+                          </a>
+                        </div>
+                        <div className="cart-content">
+                          <h3>
+                            <a href="#">Black &amp; White Shoes</a>
+                          </h3>
+                          <div className="cart-price">
+                            <span className="new">$ 229.9</span>
+                            <span>
+                              <del>$239.9</del>
+                            </span>
+                          </div>
+                        </div>
+                        <div className="del-icon">
+                          <a href="#">
+                            <i className="far fa-trash-alt" />
+                          </a>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="cart-img">
+                          <a href="#">
+                            <img src="./assets/pro2.jpg" alt="" />
+                          </a>
+                        </div>
+                        <div className="cart-content">
+                          <h3>
+                            <a href="#">Black &amp; White Shoes</a>
+                          </h3>
+                          <div className="cart-price">
+                            <span className="new">$ 229.9</span>
+                            <span>
+                              <del>$239.9</del>
+                            </span>
+                          </div>
+                        </div>
+                        <div className="del-icon">
+                          <a href="#">
+                            <i className="far fa-trash-alt" />
+                          </a>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="cart-img">
+                          <a href="#">
+                            <img src="./assets/pro3.jpg" alt="" />
+                          </a>
+                        </div>
+                        <div className="cart-content">
+                          <h3>
+                            <a href="#">Black &amp; White Shoes</a>
+                          </h3>
+                          <div className="cart-price">
+                            <span className="new">$ 229.9</span>
+                            <span>
+                              <del>$239.9</del>
+                            </span>
+                          </div>
+                        </div>
+                        <div className="del-icon">
+                          <a href="#">
+                            <i className="far fa-trash-alt" />
+                          </a>
+                        </div>
+                      </li>
                       <li>
                         <div className="total-price">
                           <span className="f-left">Total:</span>

@@ -1,22 +1,22 @@
 export const ADD_ITEM_TO_CART = 'ADD_ITEM_TO_CART';
-export const GET_PRODUCT_REQUEST = 'GET_PRODUCT_REQUEST';
-export const GET_PRODUCT_SUCCESS = 'GET_PRODUCT_SUCCESS';
-export const GET_PRODUCT_ERROR = 'GET_PRODUCT_ERROR';
+export const PRODUCT_LIST_REQUEST = 'PRODUCT_LIST_REQUEST';
+export const PRODUCT_LIST_SUCCESS = 'PRODUCT_LIST_SUCCESS';
+export const PRODUCT_LIST_ERROR = 'PRODUCT_LIST_ERROR';
 
 export function getProductRequest() {
     return {
-        type: GET_PRODUCT_REQUEST
+        type: PRODUCT_LIST_REQUEST
     }
 }
 export function getProductSuccess(products) {
     return {
-        type: GET_PRODUCT_SUCCESS,
+        type: PRODUCT_LIST_SUCCESS,
         payload: products
     }
 }
 export function getProductError(error) {
     return {
-        type: GET_PRODUCT_ERROR,
+        type: PRODUCT_LIST_ERROR,
         error
     }
 }
@@ -27,29 +27,39 @@ export function addItemToCartAction(item) {
         payload: item
     }
 }
+    
 
+export default function getProduct (){
+    
+    return (dispatch) => {
+        dispatch(getProductRequest())
+        return fetch ("https://mapi.sendo.vn/mob/product/search?p=1&q=M%C3%B3c%20kho%C3%A1%20m%C3%A8o%20cute")
+        .then(r => r.json())
+        .then(result => dispatch(getProductSuccess(result.data)))
+        .catch(error => dispatch(getProductError(error)))
+    }
+}
 export const addItemToCart = (item) => {
     return (dispatch) => {
-        dispatch(productListRequest())
+        dispatch(getProductRequest())
         return fetch("https://mapi.sendo.vn/mob/product/search?p=1&q=M%C3%B3c%20kho%C3%A1%20m%C3%A8o%20cute")
             .then(r => r.json())
-            .then(result => dispatch(productListSuccess(result.data)))
-            .catch(error => dispatch(productListFail(error)))
-
+            .then(result => dispatch(getProductSuccess(result.data)))
+            .catch(error => dispatch(getProductError(error)))
     }
 }
 export function setProducts(temp) {
     return (dispatch) => {
-        dispatch(productListSuccess([...temp]))
+        dispatch(getProductSuccess([...temp]))
     }
 }
 
 export function searchProduct(name) {
     return (dispatch) => {
-        dispatch(productListRequest())
+        dispatch(getProductRequest())
         return fetch("https://mapi.sendo.vn/mob/product/search?p=1&q=" + name)
             .then(r => r.json())
-            .then(result => dispatch(productListSuccess(result.data)))
-            .catch(error => dispatch(productListFail(error)))
+            .then(result => dispatch(getProductSuccess(result.data)))
+            .catch(error => dispatch(getProductError(error)))
     }
 }
