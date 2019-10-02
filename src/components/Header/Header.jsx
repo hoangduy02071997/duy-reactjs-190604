@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import firbase from 'firebase'
 
 function Header(props) {
+  const {prdInCart = [], rmProduct} = props
+
+  
+
   return (
     <header>
       <div id="header-sticky" className="header-area box-90 sticky-header">
@@ -75,79 +80,39 @@ function Header(props) {
                     <a href="#">
                       <i className="fas fa-shopping-cart" />{" "}
                       <span className="cart-count">
-                        {props.lengthOfSelectedItem}
+                        {prdInCart.length}
                       </span>
                     </a>
                     <ul className="minicart">
-                    <li>
+                    {
+                      prdInCart.map(elm => {
+                        return (
+                          <li>
                         <div className="cart-img">
                           <a href="#">
-                            <img src="./assets/pro1.jpg" alt="" />
+                            <img src={elm.img_url} alt="" />
                           </a>
                         </div>
                         <div className="cart-content">
                           <h3>
-                            <a href="#">Black &amp; White Shoes</a>
+                            <a href="#">{elm.name}</a>
                           </h3>
                           <div className="cart-price">
-                            <span className="new">$ 229.9</span>
+                            <span className="new">{elm.price}</span>
                             <span>
-                              <del>$239.9</del>
+                              <del>{elm.final_price}</del>
                             </span>
                           </div>
                         </div>
                         <div className="del-icon">
-                          <a href="#">
+                          <a href="#" onClick = {rmProduct}>
                             <i className="far fa-trash-alt" />
                           </a>
                         </div>
                       </li>
-                      <li>
-                        <div className="cart-img">
-                          <a href="#">
-                            <img src="./assets/pro2.jpg" alt="" />
-                          </a>
-                        </div>
-                        <div className="cart-content">
-                          <h3>
-                            <a href="#">Black &amp; White Shoes</a>
-                          </h3>
-                          <div className="cart-price">
-                            <span className="new">$ 229.9</span>
-                            <span>
-                              <del>$239.9</del>
-                            </span>
-                          </div>
-                        </div>
-                        <div className="del-icon">
-                          <a href="#">
-                            <i className="far fa-trash-alt" />
-                          </a>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="cart-img">
-                          <a href="#">
-                            <img src="./assets/pro3.jpg" alt="" />
-                          </a>
-                        </div>
-                        <div className="cart-content">
-                          <h3>
-                            <a href="#">Black &amp; White Shoes</a>
-                          </h3>
-                          <div className="cart-price">
-                            <span className="new">$ 229.9</span>
-                            <span>
-                              <del>$239.9</del>
-                            </span>
-                          </div>
-                        </div>
-                        <div className="del-icon">
-                          <a href="#">
-                            <i className="far fa-trash-alt" />
-                          </a>
-                        </div>
-                      </li>
+                        )
+                      })
+                    }
                       <li>
                         <div className="total-price">
                           <span className="f-left">Total:</span>

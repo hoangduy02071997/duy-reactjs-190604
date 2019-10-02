@@ -26,9 +26,10 @@ function App() {
   }
 
   // Add to Cart
-  const onAddToCard = (product) => {
+  const onAddToCart = (product) => {
     setPrdInCart([...prdIncart, product])
   }
+ 
   // remove PRD inMiniCart
   const rmProduct = (product) => {
     const products = prdIncart.filter(elm => elm.productId !== product.productId)
@@ -45,7 +46,7 @@ function App() {
             exact
             path="/"
             render={() => <ProductList getProductList={getProductList} productList={productList}
-              onAddToCard = {onAddToCard}
+              onAddToCart = {onAddToCart}
             />}
           />
           <Route path="/login" component={Login} />
