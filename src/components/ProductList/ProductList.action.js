@@ -29,8 +29,7 @@ export function addItemToCartAction(item) {
 }
     
 
-export default function getProduct (){
-    
+export default function getProduct (id){
     return (dispatch) => {
         dispatch(getProductRequest())
         return fetch ("https://mapi.sendo.vn/mob/product/search?p=1&q=M%C3%B3c%20kho%C3%A1%20m%C3%A8o%20cute")

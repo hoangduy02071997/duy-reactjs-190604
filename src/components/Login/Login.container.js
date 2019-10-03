@@ -1,17 +1,18 @@
 import { connect } from 'react-redux'
-import { login } from './LoginForm.action'
-import Login from './'
+import Login from './Login'
+import {login} from './Login.action'
 
 const mapStateToProps = (state) => {
+  
   return {
-    loading: state.loginReducer.loading,
-    data: state.loginReducer.data,
-    error: state.loginReducer.error
+    user: state.loginReducer.result,
+    error: state.loginReducer.error,
+    load: state.loginReducer.load
   }
 }
 
 const mapDispatchToProps = {
-  login
+  login : login
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

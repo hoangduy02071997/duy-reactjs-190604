@@ -2,22 +2,25 @@ import React, { useState, useEffect } from 'react';
 import firebaseApp from '../../firebaseConfig';
 import { Redirect } from 'react-router-dom'
 
+
 export default function Login(props) {
 
-  const { formData, setForm } = useState({ email: '', password: '' })
-  const [errMsg, setErrMsg] = useState(null)
+  const  [formData, setFormData]  = useState({ email: '', password: '' })
+  const [errMsg, setErrMsg] = useState(true)
 
-  const { error, loading, login } = props;
+  const { error, loading, login, user, history } = props;
+  console.log(props)
 
   const onSubmit = async (e) => {
+    console.log(e,'eee')
     e.preventDefault()
-    props.getLogin(formData.emal, formData.password)
-    console.log(formData)
+    login(formData.email, formData.password)
   }
 
-  const onChangeForm = (e) => {
+  const onChange = (e) => {
     const id = e.target.id
-    setForm({...formData, [id]: e.target.value})
+    //console.log(setFormData,'setformData')
+    setFormData({ ...formData, [id]: e.target.value })
   }
 
   useEffect(() => {
@@ -60,17 +63,17 @@ export default function Login(props) {
             <div className="col-lg-8 offset-lg-2">
               <div className="basic-login">
                 <h3 className="text-center mb-60">Login From Here</h3>
-                <p className="text-danger">{error}</p>
+                <p className="text-danger">{props.error}</p>
                 <form onSubmit={onSubmit}>
                   <label htmlFor="name">Email Address <span>**</span></label>
                   <input
                     id="name"
                     type="text"
                     placeholder="Enter Username or Email address..."
-                    onChange={onChangeForm}
+                    onChange={onChange}
                   />
                   <label htmlFor="pass">Password <span>**</span></label>
-                  <input id="pass" type="password" placeholder="Enter password..." onChange={onChangeForm} />
+                  <input id="pass" type="password" placeholder="Enter password..." onChange={onChange} />
                   <div className="login-action mb-20 fix">
                     <span className="log-rem f-left">
                       <input id="remember" type="checkbox" />

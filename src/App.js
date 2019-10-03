@@ -4,7 +4,7 @@ import getProduct from './components/ProductList/ProductList.action'
 import result from './data.json'
 import Layout from "./components/Layout";
 import ProductList from "./components/ProductList/ProductList.container";
-import Login from "./components/Login/Login";
+import Login from "./components/Login/Login.container";
 import Register from "./components/Register/index";
 import NoMatch from "./components/NoMatch/NoMatch";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";

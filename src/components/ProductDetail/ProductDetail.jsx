@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import {withRouter} from 'react-router-dom'
+import {getProductDetail} from './ProductDetail.action'
+
 
 function ProductDetail(props) {
-  const {productList, match} = props
-  const {id} = match
-  const productInfor = productList.find(elm => {
-    if(elm.product === parseInt(id))
-    return elm
-  })
-  console.log(productInfor)
-  
+  //console.log(props)
+  const id = props.match.params.id
+  const product = props.product 
+  useEffect(() => {
+    getProductDetail(id)
+  },[id])
+  if(props.load || !props.product){
+    return (<p>loading....</p>)
+  }
+
   return (
     <main>
       {/* breadcrumb-area-start */}

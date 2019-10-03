@@ -1,4 +1,4 @@
-import firebase from 'firebase'
+import firebaseApp from'../../firebaseConfig'
 export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGIN_FAILURE = 'LOGIN_FAILURE'
@@ -11,28 +11,28 @@ export function loginRequestAction() {
   }
 }
 
-export function loginSuccessAction(result) {
+export function loginSuccessAction(user) {
   return {
     type: LOGIN_SUCCESS,
-    payload: result
+    payload: user
   }
 }
 
 export function loginFailureAction(error) {
   return {
     type: LOGIN_FAILURE,
-    error
+    payload: error
   }
 }
 
-export function login(email, password) {
-  return async (dispatch) => {
-    dispatch(loginRequestAction())
-    try {
-      const result = await firebase.auth().signInWithEmailAndPassword(email, password)
-      dispatch(loginSuccessAction(result))
-    } catch(error) {
-      dispatch(loginFailureAction(error.message))
-    }
+export const login = (email, password) =>{
+  return dispatchEvent => {
+      dispatchEvent(loginRequestAction())
+      firebaseApp.auth().signInWithEmailAndPassword(email, password)
+      .then(result => {
+          dispatchEvent(loginSuccessAction(result.user))
+      }).catch(error  => {
+          dispatchEvent(loginFailureAction(error))
+      })
   }
 }
