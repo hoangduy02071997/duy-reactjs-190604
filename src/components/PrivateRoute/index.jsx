@@ -3,15 +3,15 @@ import { Route, Redirect } from 'react-router-dom'
 import firebase from 'firebase'
 
 function PrivateRoute({ component: Component, render, ...rest }) {
-  {/*const [user, setUser] = useState()
+  const [user, setUser] = useState()
   useEffect(() => {
     firebase.auth().onAuthStateChanged((result) => {
       console.log(result, "result")
       setUser(result)
     });
-  }, [setUser])*/}
+  }, [setUser])
   console.log(rest , 'rest')
-  const {user} = rest
+
   if (user === undefined) {
     return <p>'Loading....'</p>
   }

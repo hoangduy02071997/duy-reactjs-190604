@@ -27,8 +27,10 @@ function App() {
 
   // Add to Cart
   const onAddToCart = (product) => {
+    console.log(product,'product')
     setPrdInCart([...prdIncart, product])
   }
+
  
   // remove PRD inMiniCart
   const rmProduct = (product) => {
@@ -40,7 +42,7 @@ function App() {
   return (
     <Router>
 
-      <Layout  prdIncart={prdIncart} rmProduct={rmProduct}>
+      <Layout onAddToCart={onAddToCart} prdIncart={prdIncart} rmProduct={rmProduct}>
         <Switch>
           <Route
             exact

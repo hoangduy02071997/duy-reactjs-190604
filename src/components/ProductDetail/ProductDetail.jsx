@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import {withRouter} from 'react-router-dom'
 
 function ProductDetail(props) {
-  useEffect(() => {
-    props.findSelectedItem(props.match.params.productId)
-  }, [])
-
-  if(!props.selectedItem) {
-    return (<p>Loading...</p>)
-  }
+  const {productList, match} = props
+  const {id} = match
+  const productInfor = productList.find(elm => {
+    if(elm.product === parseInt(id))
+    return elm
+  })
+  console.log(productInfor)
   
   return (
     <main>

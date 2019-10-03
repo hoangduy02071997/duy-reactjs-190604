@@ -113,7 +113,8 @@ const onFormSearch = () => {
                 >
                   <div className="row">
                     {productShow.map(product => (
-                      <ProductItems onAddToCart = {onAddToCart} {...product} />
+                      //product 
+                      <ProductItems onAddToCart = {onAddToCart} product={product} />
                     ))
                     }
                   </div>

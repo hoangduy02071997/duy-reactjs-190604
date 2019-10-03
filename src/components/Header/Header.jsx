@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import firbase from 'firebase'
 
 function Header(props) {
-  const {prdInCart = [], rmProduct} = props
-
+  const {prdIncart, rmProduct} = props
+  console.log(props)
   
 
   return (
@@ -36,7 +36,7 @@ function Header(props) {
                 <nav id="mobile-menu" style={{ display: "block" }}>
                   <ul>
                     <li>
-                      <Link to=".   /">Home</Link>
+                      <Link to="/">Home</Link>
                     </li>
                     <li>
                       <a href="#">Pages</a>
@@ -80,12 +80,13 @@ function Header(props) {
                     <a href="#">
                       <i className="fas fa-shopping-cart" />{" "}
                       <span className="cart-count">
-                        {prdInCart.length}
+                        { //&& neu k co thi k hien thi ra
+                          prdIncart&&prdIncart.length}
                       </span>
                     </a>
                     <ul className="minicart">
                     {
-                      prdInCart.map(elm => {
+                      prdIncart&&prdIncart.map(elm => {
                         return (
                           <li>
                         <div className="cart-img">
@@ -105,7 +106,7 @@ function Header(props) {
                           </div>
                         </div>
                         <div className="del-icon">
-                          <a href="#" onClick = {rmProduct}>
+                          <a href="#" onClick = {() => {rmProduct(elm)}}>
                             <i className="far fa-trash-alt" />
                           </a>
                         </div>
